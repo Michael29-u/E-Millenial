@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OneMillion Shop</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="hero" id="home">
+      <nav class="nav container">
+        <a href="#home" class="logo"
+          ><img src="Project Files/Images/EMS.svg" alt="EMS Image"
+        /></a>
+        <div class="nav-links">
+          <a href="#home">Intro</a><a href="#about">About</a
+          ><a href="#shop">Shop</a>
+        </div>
+        <div class="nav-actions">
+          <button class="cart-btn" id="cart-button" aria-label="Open cart">
+            <img
+              class="cart-img"
+              src="Project Files/Images/cart.svg"
+              alt="EMS Image" />
+            <span id="cart-count">0</span>
+          </button>
+        </div>
+      </nav>
+      <div class="hero-content container">
+        <div>
+          <div class="hero1">
+            <h1 class="h1">THE E- MILLENIAL STORE</h1>
+            <img
+              src="Project Files/Images/heroImage.svg"
+              alt="Store Logo"
+              style="
+                height: 500px;
+                vertical-align: middle;
+                margin-right: 10px;
+              " />
+          </div>
+
+          <a href="#shop" class="btn primary">SHOP NOW</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="about" id="about">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">About Us</p>
+            <h2>The E-Millenial Store Story</h2>
+          </div>
+        </div>
+        <p>
+          The E-Millenial Store is your premier destination for everyday
+          essentials that combine style, quality, and convenience. We curate
+          premium products designed for modern living, focusing on sustainable
+          materials, timeless design, and exceptional value. Our mission is to
+          make high-quality essentials accessible to everyone, transforming
+          ordinary shopping into an experience of discovery and satisfaction.
+          From thoughtfully selected home goods to carefully crafted lifestyle
+          products, every item in our collection is chosen with intention - to
+          enhance your daily routines while reflecting your personal style. We
+          believe that well-designed essentials shouldn't be a luxury, but a
+          standard for mindful living in the new millennium.
+        </p>
+      </section>
+
+      <section class="shop container" id="shop">
+        <div class="section-header">
+          <div>
+            <h2>OUR GADGETS</h2>
+          </div>
+        </div>
+        <span id="cart-summary-items" style="display: none"></span>
+        <span id="cart-summary-total" style="display: none"></span>
+        <div class="product-grid" id="product-grid"></div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div>
+          <a href="#home" class="logo"
+            ><img src="Project Files/Images/EMS.svg" alt="EMS Image"
+          /></a>
+        </div>
+        <div>
+          <p><strong>Designed and Created by Majestic</strong></p>
+        </div>
+      </div>
+    </footer>
+
+    <div class="modal hidden" id="cart-modal" aria-hidden="true">
+      <div class="modal-overlay" data-close-modal></div>
+      <div class="modal-content">
+        <header class="modal-header">
+          <h2>Your Cart</h2>
+          <button class="close-btn" data-close-modal>&times;</button>
+        </header>
+        <div id="cart-modal-body"></div>
+        <form class="checkout-form" id="checkout-form">
+          <h3>Customer Details</h3>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="customer-name">Your Name</label>
+              <input
+                type="text"
+                id="customer-name"
+                name="name"
+                placeholder="Enter your name"
+                required />
+            </div>
+            <div class="form-group">
+              <label for="customer-email">Your Email</label>
+              <input
+                type="email"
+                id="customer-email"
+                name="email"
+                placeholder="Enter your email"
+                required />
+            </div>
+            <div class="form-group">
+              <label for="customer-phone">Your Phone Number</label>
+              <input
+                type="tel"
+                id="customer-phone"
+                name="phone"
+                placeholder="Enter your phone number"
+                required />
+              <span class="field-error" id="phone-error"></span>
+            </div>
+          </div>
+          <div class="cart-total">
+            <div class="cart-total-label">Total amount to be Paid:</div>
+            <div class="cart-total-amount">
+              GH₵<span id="modal-total-amount">0.00</span>
+            </div>
+          </div>
+          <div class="modal-actions">
+            <button type="button" class="btn secondary" data-close-modal>
+              Continue Shopping
+            </button>
+            <button type="submit" class="btn primary">Checkout</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="modal hidden" id="summary-modal" aria-hidden="true">
+      <div class="modal-overlay" data-close-summary></div>
+      <div class="modal-content summary-success">
+        <header class="modal-header">
+          <h2>Order Received</h2>
+          <button class="close-btn" data-close-summary>&times;</button>
+        </header>
+        <div class="summary-body">
+          <p id="summary-message"></p>
+          <img
+            class="success-image"
+            src="/Project Files/Images/check.svg"
+            alt="Order Successful" />
+          <h2 class="summary-heading">Summary</h2>
+          <div class="summary-list" id="summary-list"></div>
+        </div>
+        <button class="btn primary" data-close-summary>OK</button>
+      </div>
+    </div>
+
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>
