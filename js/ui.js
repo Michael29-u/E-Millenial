@@ -1,15 +1,3 @@
-import { products } from "./productData.js";
-import {
-  addToCart,
-  clearCart,
-  getCartItems,
-  getCartQuantity,
-  getCartTotals,
-  removeFromCart,
-  updateQuantity,
-} from "./cartLogic.js";
-import { formatCurrency, formatPrice } from "./utils.js";
-
 const dom = {
   productGrid: document.getElementById("product-grid"),
   cartCountEl: document.getElementById("cart-count"),
@@ -267,13 +255,11 @@ function attachEventListeners() {
       email: dom.checkoutForm.elements.email.value.trim(),
       phone: phoneValue,
     };
-    import("./checkout.js").then(({ payWithPaystack }) => {
-      payWithPaystack(customer, showSummaryModal);
-    });
+    payWithPaystack(customer, showSummaryModal);
   });
 }
 
-export function initApp() {
+function initApp() {
   renderAll();
   attachEventListeners();
 }

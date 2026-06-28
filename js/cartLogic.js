@@ -1,8 +1,6 @@
-import { products } from "./productData.js";
+const cart = {};
 
-export const cart = {};
-
-export function getCartTotals() {
+function getCartTotals() {
   const items = Object.keys(cart).length;
   const total = Object.values(cart).reduce(
     (sum, { product, quantity }) => sum + product.price * quantity,
@@ -11,7 +9,7 @@ export function getCartTotals() {
   return { items, total };
 }
 
-export function getCartDetails() {
+function getCartDetails() {
   return Object.values(cart).map(({ product, quantity }) => ({
     name: product.name,
     price: product.price,
@@ -20,15 +18,15 @@ export function getCartDetails() {
   }));
 }
 
-export function getCartQuantity(productId) {
+function getCartQuantity(productId) {
   return cart[productId]?.quantity ?? 0;
 }
 
-export function getCartItems() {
+function getCartItems() {
   return Object.values(cart);
 }
 
-export function addToCart(productId) {
+function addToCart(productId) {
   const product = products.find((item) => item.id === productId);
   if (!product) return;
 
@@ -39,13 +37,13 @@ export function addToCart(productId) {
   }
 }
 
-export function removeFromCart(productId) {
+function removeFromCart(productId) {
   if (cart[productId]) {
     delete cart[productId];
   }
 }
 
-export function updateQuantity(productId, delta) {
+function updateQuantity(productId, delta) {
   if (!cart[productId]) return;
   cart[productId].quantity += delta;
   if (cart[productId].quantity <= 0) {
@@ -53,6 +51,6 @@ export function updateQuantity(productId, delta) {
   }
 }
 
-export function clearCart() {
+function clearCart() {
   Object.keys(cart).forEach((key) => delete cart[key]);
 }

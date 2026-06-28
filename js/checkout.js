@@ -1,8 +1,6 @@
-import { getCartTotals, getCartDetails, clearCart } from "./cartLogic.js";
-
 const PUBLIC_KEY = "pk_test_2544a1f1ee1812944ad9629f4397d663a71d6c59";
 
-export function payWithPaystack(customer, onSuccess) {
+function payWithPaystack(customer, onSuccess) {
   const { total } = getCartTotals();
   const cartDetails = getCartDetails();
 

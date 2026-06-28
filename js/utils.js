@@ -1,12 +1,12 @@
-export const currencySymbol = "GH₵";
+const currencySymbol = "GH" + String.fromCharCode(0x20b5);
 
-export function formatCurrency(amount) {
+function formatCurrency(amount) {
   return amount.toLocaleString("en-GH", {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   });
 }
 
-export function formatPrice(amount) {
+function formatPrice(amount) {
   return `${currencySymbol}${formatCurrency(amount)}`;
 }
